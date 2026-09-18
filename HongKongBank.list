@@ -1,0 +1,50 @@
+# Hong Kong Bank — personal Quantumult X draft
+# Updated: 2026-09-18 | Policy: Bank
+# Scope: HSBC HK / EleBank / ZA / Wise; not all Hong Kong banks.
+# Create/select policy Bank before import. No claim of complete App coverage.
+# Sources and optional dependencies: see README.md.
+
+# HSBC HK and shared HSBC services
+HOST-SUFFIX,hsbc.com.hk,Bank
+HOST-SUFFIX,hsbc.com,Bank
+HOST-SUFFIX,hsbc,Bank
+HOST-SUFFIX,hsbc.net,Bank
+HOST-SUFFIX,hsbcnet.com,Bank
+# PayMe / vv1865: community-maintained HSBC domain inventory
+HOST-SUFFIX,vv1865.com,Bank
+
+# EleBank
+HOST-SUFFIX,elebank.com,Bank
+
+# ZA: inherited from upstream Bank.list; App coverage unverified
+HOST-SUFFIX,za.group,Bank
+HOST-SUFFIX,zainvest.group,Bank
+HOST-SUFFIX,zajourney.com,Bank
+
+# Wise: included for personal use alongside HK banks
+HOST-SUFFIX,wise.com,Bank
+# Official Wise documentation also lists this production API endpoint
+HOST,api.transferwise.com,Bank
+
+# Optional HSBC-specific third-party hosts from upstream; enable after testing
+# HOST,c-hsbc.lytics.io,Bank
+# HOST,hsbc.edge.sdk.awswaf.com,Bank
+# HOST,log-58144bf0.we-stats.com,Bank
+
+# Optional SHARED third-party services from upstream (disabled by default).
+# Enabling these also routes other apps using the same hosts through Bank.
+# HSBC-related observations:
+# HOST,mobile.eum-appdynamics.com,Bank
+# HOST,tags.tiqcdn.com,Bank
+# HOST,cdn.optimizely.com,Bank
+# HOST-SUFFIX,tealiumiq.com,Bank
+# HOST-SUFFIX,online-metrix.net,Bank
+# HOST-SUFFIX,liveperson.net,Bank
+# HOST-SUFFIX,lpsnmedia.net,Bank
+# EleBank-related observation:
+# HOST-SUFFIX,appsflyersdk.com,Bank
+# ZA-related observations:
+# HOST-SUFFIX,crashlytics.com,Bank
+# HOST,app-measurement.com,Bank
+# Wise-related observation:
+# HOST,api.mixpanel.com,Bank
