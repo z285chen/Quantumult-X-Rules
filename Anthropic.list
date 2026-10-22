@@ -1,0 +1,55 @@
+# NAME: Anthropic / Claude
+# AUTHOR: z285chen
+# REPO: https://github.com/z285chen/Quantumult-X-Rules
+# REVIEWED: 2026-10-22
+# FORMAT: Quantumult X | POLICY: Anthropic | ACTIVE RULES: 10
+# Sources, scope and import instructions: docs/Anthropic.md
+# Shared dependencies below are commented; enable individual hosts as needed.
+
+# Official product hosts: API, sign-in, downloads, previews, Artifacts and MCP Apps
+HOST-SUFFIX,anthropic.com,Anthropic
+HOST-SUFFIX,claude.ai,Anthropic
+HOST-SUFFIX,claude.com,Anthropic
+HOST-SUFFIX,claude.app,Anthropic
+HOST-SUFFIX,claudeusercontent.com,Anthropic
+HOST-SUFFIX,claudemcpcontent.com,Anthropic
+
+# Developer blog linked from claude.com
+HOST-SUFFIX,claude.dev,Anthropic
+
+# Short links: community inventory; not in the official network requirements
+HOST-SUFFIX,clau.de,Anthropic
+
+# Official API inbound ranges; native Quantumult X syntax
+IP-CIDR,160.79.104.0/23,Anthropic
+IP6-CIDR,2607:6bc0::/48,Anthropic
+
+# Optional SHARED hosts: enabling these also routes other apps using them.
+# Claude Code plugin metadata and native installers before version 2.1.116
+# HOST,storage.googleapis.com,Anthropic
+# npm-based installs, plugin packages and npx-launched MCP servers
+# HOST,registry.npmjs.org,Anthropic
+# GitHub-hosted plugins / marketplaces and release notes
+# HOST,github.com,Anthropic
+# HOST,raw.githubusercontent.com,Anthropic
+# Homebrew update checks
+# HOST,formulae.brew.sh,Anthropic
+
+# Optional SHARED Artifact fonts and JavaScript libraries
+# HOST,fonts.googleapis.com,Anthropic
+# HOST,fonts.gstatic.com,Anthropic
+# HOST,cdnjs.cloudflare.com,Anthropic
+# HOST,cdn.jsdelivr.net,Anthropic
+# HOST,cdn.tailwindcss.com,Anthropic
+# HOST,code.jquery.com,Anthropic
+# HOST,unpkg.com,Anthropic
+
+# Optional SHARED Claude Code telemetry and error reporting
+# HOST,http-intake.logs.us5.datadoghq.com,Anthropic
+# HOST,browser-intake-us5-datadoghq.com,Anthropic
+
+# Optional ecosystem destinations
+# Community inventory; endpoint purpose not independently verified
+# HOST-SUFFIX,claudemcpclient.com,Anthropic
+# MCP specification website; enable if you want its docs on this policy
+# HOST-SUFFIX,modelcontextprotocol.io,Anthropic
