@@ -7,6 +7,25 @@
 | [Anthropic.list](Anthropic.list) | `Anthropic` | Claude 网页、API、桌面预览、Artifacts 与 MCP 内容；[来源与维护说明](docs/Anthropic.md) |
 | [HongKongBank.list](HongKongBank.list) | `Bank` | 汇丰香港、大象银行、ZA、Wise；详见下方说明 |
 
+## Loon 版本
+
+Quantumult X 文件保持原样，Loon 版本放在 `loon/` 目录。Loon 远程规则文件本身不写策略名，策略在 `[Remote Rule]` 中映射：
+
+| Loon 文件 | 建议策略 | 对应 Quantumult X 文件 |
+| --- | --- | --- |
+| [loon/Anthropic.list](loon/Anthropic.list) | `Anthropic` | [Anthropic.list](Anthropic.list) |
+| [loon/HongKongBank.list](loon/HongKongBank.list) | `Bank` | [HongKongBank.list](HongKongBank.list) |
+
+先在 Loon 中创建或选择同名策略，再把对应行加入配置的 `[Remote Rule]` 段：
+
+```ini
+[Remote Rule]
+https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/loon/Anthropic.list, policy=Anthropic, enabled=true
+https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/loon/HongKongBank.list, policy=Bank, enabled=true
+```
+
+`policy=` 必须指向已存在的策略或策略组；不打算单独出口时也可以指向 `PROXY` 或 `DIRECT`。规则命中结果仍受本地规则、其他订阅和 DNS 影响，应在 Loon 的请求记录中确认。转换映射、IP 规则语义和校验结果见 [Loon 说明](docs/Loon.md)。
+
 ## Anthropic / Claude
 
 核查日期：2026-10-22。默认启用 10 条规则，包含 8 条域名后缀和 2 条官方 API 入站 IP 范围。共享安装、插件、字体、JavaScript 库和遥测主机作为注释保留，可按需启用。

@@ -1,0 +1,55 @@
+# NAME: Hong Kong Bank (Loon)
+# AUTHOR: z285chen
+# REPO: https://github.com/z285chen/Quantumult-X-Rules
+# REVIEWED: 2026-09-18 | CONVERTED: 2026-11-14
+# FORMAT: Loon remote rule; this file carries no policy name.
+# POLICY: map it in [Remote Rule] with policy=Bank (or your own policy).
+# ACTIVE RULES: 12
+# Scope: HSBC HK / EleBank / ZA / Wise; not all Hong Kong banks.
+# Source: HongKongBank.list (Quantumult X). Mapping and caveats: docs/Loon.md
+# Create/select the policy before import. No claim of complete App coverage.
+
+# HSBC HK and shared HSBC services
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.com
+DOMAIN-SUFFIX,hsbc
+DOMAIN-SUFFIX,hsbc.net
+DOMAIN-SUFFIX,hsbcnet.com
+# PayMe / vv1865: community-maintained HSBC domain inventory
+DOMAIN-SUFFIX,vv1865.com
+
+# EleBank
+DOMAIN-SUFFIX,elebank.com
+
+# ZA: inherited from upstream Bank.list; App coverage unverified
+DOMAIN-SUFFIX,za.group
+DOMAIN-SUFFIX,zainvest.group
+DOMAIN-SUFFIX,zajourney.com
+
+# Wise: included for personal use alongside HK banks
+DOMAIN-SUFFIX,wise.com
+# Official Wise documentation also lists this production API endpoint
+DOMAIN,api.transferwise.com
+
+# Optional HSBC-specific third-party hosts from upstream; enable after testing
+# DOMAIN,c-hsbc.lytics.io
+# DOMAIN,hsbc.edge.sdk.awswaf.com
+# DOMAIN,log-58144bf0.we-stats.com
+
+# Optional SHARED third-party services from upstream (disabled by default).
+# Enabling these also routes other apps using the same hosts through Bank.
+# HSBC-related observations:
+# DOMAIN,mobile.eum-appdynamics.com
+# DOMAIN,tags.tiqcdn.com
+# DOMAIN,cdn.optimizely.com
+# DOMAIN-SUFFIX,tealiumiq.com
+# DOMAIN-SUFFIX,online-metrix.net
+# DOMAIN-SUFFIX,liveperson.net
+# DOMAIN-SUFFIX,lpsnmedia.net
+# EleBank-related observation:
+# DOMAIN-SUFFIX,appsflyersdk.com
+# ZA-related observations:
+# DOMAIN-SUFFIX,crashlytics.com
+# DOMAIN,app-measurement.com
+# Wise-related observation:
+# DOMAIN,api.mixpanel.com

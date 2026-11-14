@@ -2,6 +2,8 @@
 
 核查日期：2026-10-22。规则文件：[Anthropic.list](../Anthropic.list)。默认启用 10 条：8 条域名后缀、2 条官方 API 入站 IP 范围。
 
+Loon 版本：[loon/Anthropic.list](../loon/Anthropic.list)，策略由 `[Remote Rule]` 映射，转换说明见 [Loon.md](Loon.md)。
+
 ## 导入
 
 订阅地址：
