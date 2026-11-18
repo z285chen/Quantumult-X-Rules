@@ -1,12 +1,12 @@
 # NAME: Anthropic / Claude (Loon)
 # AUTHOR: z285chen
 # REPO: https://github.com/z285chen/Quantumult-X-Rules
-# REVIEWED: 2026-10-22 | CONVERTED: 2026-11-14
+# CORE REVIEWED: 2026-10-22 | UPDATED: 2026-11-18 | CONVERTED: 2026-11-18
 # FORMAT: Loon remote rule; this file carries no policy name.
 # POLICY: map it in [Remote Rule] with policy=Anthropic (or your own policy).
-# ACTIVE RULES: 10
+# ACTIVE RULES: 22
 # Source: Anthropic.list (Quantumult X). Mapping, evidence and caveats: docs/Loon.md
-# Shared dependencies below are commented; enable individual hosts as needed.
+# Other shared dependencies remain commented; the two Datadog intake hosts are enabled.
 
 # Official product hosts: API, sign-in, downloads, previews, Artifacts and MCP Apps
 DOMAIN-SUFFIX,anthropic.com
@@ -21,6 +21,24 @@ DOMAIN-SUFFIX,claude.dev
 
 # Short links: community inventory; not in the official network requirements
 DOMAIN-SUFFIX,clau.de
+
+# Community domain inventory: enabled by request on 2026-11-18.
+# Source and limits: docs/Anthropic.md; ownership and endpoint purposes not independently verified.
+DOMAIN-SUFFIX,ant.dev
+DOMAIN-SUFFIX,anthropic.team
+DOMAIN-SUFFIX,antspace.dev
+DOMAIN-SUFFIX,chatbotclaude.com
+DOMAIN-SUFFIX,claude.new
+DOMAIN-SUFFIX,claude.site
+DOMAIN-SUFFIX,claudeacademy.com
+DOMAIN-SUFFIX,claudemcpclient.com
+DOMAIN-SUFFIX,claudepages.dev
+DOMAIN-SUFFIX,claudestudio.com
+
+# Optional Claude Code operational telemetry and error reporting; enabled by request.
+# SHARED Datadog hosts: other apps using these exact hosts also follow this policy.
+DOMAIN,http-intake.logs.us5.datadoghq.com
+DOMAIN,browser-intake-us5-datadoghq.com
 
 # Official API inbound ranges; Loon names the IPv6 type IP-CIDR6.
 # no-resolve is intentionally omitted to keep the source matching semantics:
@@ -48,12 +66,6 @@ IP-CIDR6,2607:6bc0::/48
 # DOMAIN,code.jquery.com
 # DOMAIN,unpkg.com
 
-# Optional SHARED Claude Code telemetry and error reporting
-# DOMAIN,http-intake.logs.us5.datadoghq.com
-# DOMAIN,browser-intake-us5-datadoghq.com
-
 # Optional ecosystem destinations
-# Community inventory; endpoint purpose not independently verified
-# DOMAIN-SUFFIX,claudemcpclient.com
 # MCP specification website; enable if you want its docs on this policy
 # DOMAIN-SUFFIX,modelcontextprotocol.io

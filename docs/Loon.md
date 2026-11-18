@@ -1,10 +1,10 @@
 # Loon 版本说明
 
-转换日期：2026-11-14。Quantumult X 原文件未改动；Loon 文件位于 [`loon/`](../loon)。
+首次转换日期：2026-11-14；最近同步日期：2026-11-18。Quantumult X 和 Loon 两种格式同步维护；Loon 文件位于 [`loon/`](../loon)。
 
 | Loon 文件 | 建议策略 | 对应 Quantumult X 文件 | 有效规则 |
 | --- | --- | --- | --- |
-| [`loon/Anthropic.list`](../loon/Anthropic.list) | `Anthropic` | [`Anthropic.list`](../Anthropic.list) | 10 |
+| [`loon/Anthropic.list`](../loon/Anthropic.list) | `Anthropic` | [`Anthropic.list`](../Anthropic.list) | 22 |
 | [`loon/HongKongBank.list`](../loon/HongKongBank.list) | `Bank` | [`HongKongBank.list`](../HongKongBank.list) | 12 |
 
 ## 导入
@@ -50,15 +50,15 @@ IP-CIDR6,2607:6bc0::/48
 
 ## 顺序与例外
 
-两份文件都没有 `DIRECT` / `REJECT` 例外行。转换保持源文件的原始顺序：域名规则在前，IP 规则在后；注释块的位置也不变。后续若在 Quantumult X 文件中加入例外，应同步保持它在 Loon 文件中的相对位置。
+两份文件都没有 `DIRECT` / `REJECT` 例外行。Loon 与 Quantumult X 源文件保持逐条对应的顺序。2026-11-18 新增的 10 个社区后缀和启用的 2 个精确遥测主机均放在 IP 规则之前；原有有效域名之间的相对顺序保留。后续若在 Quantumult X 文件中加入例外，应同步保持它在 Loon 文件中的相对位置。
 
 ## 校验
 
-- 有效条目：`Anthropic` 10 条（8 条 `DOMAIN-SUFFIX` + 1 条 `IP-CIDR` + 1 条 `IP-CIDR6`）；`HongKongBank` 12 条（11 条 `DOMAIN-SUFFIX` + 1 条 `DOMAIN`）。
-- 注释中的可选规则：`Anthropic` 16 条，`HongKongBank` 14 条，均已按同一映射改写。
+- 有效条目：`Anthropic` 22 条（18 条 `DOMAIN-SUFFIX` + 2 条 `DOMAIN` + 1 条 `IP-CIDR` + 1 条 `IP-CIDR6`）；`HongKongBank` 12 条（11 条 `DOMAIN-SUFFIX` + 1 条 `DOMAIN`）。
+- 注释中的可选规则：`Anthropic` 13 条，`HongKongBank` 14 条，均已按同一映射改写。
 - 逐条核对：去掉注释和空行后，两个 Loon 文件的规则数量、顺序、类型和值均与源文件一一对应；Loon 行末没有残留 `Anthropic` 或 `Bank` 策略字段。
 - 已按 Loon 官方文档核对 `DOMAIN`、`DOMAIN-SUFFIX`、`DOMAIN-KEYWORD`、`IP-CIDR`、`IP-CIDR6`、`IP-ASN` 的写法，以及订阅规则不含策略、策略由 `[Remote Rule]` 映射的规则。
-- 尚未在 Loon 客户端中实际导入验证。
+- 本次新增条目的实际请求、命中策略和最终出口尚未在客户端逐项验收；静态匹配检查不等于完整功能验收。
 
 ## 疑似源文件问题
 
@@ -66,7 +66,7 @@ IP-CIDR6,2607:6bc0::/48
 
 - `DOMAIN-SUFFIX,hsbc` 是单标签后缀，只匹配以 `.hsbc` 结尾的主机。它来自 Quantumult X 源文件中的 `HOST-SUFFIX,hsbc`，README 已说明这是有意加入的品牌顶级域；Loon 的同名规则语义一致，故原样保留。
 - `DOMAIN,api.transferwise.com` 不能由 `wise.com` 后缀覆盖，源文件单列是必要的，不是重复条目。
-- `Anthropic.list` 中 `claude.dev`、`clau.de` 的依据强弱不同，源文档已分别标注；本次只做格式转换，没有重新核实域名用途。
+- `Anthropic.list` 中官方产品范围、社区补充和共享遥测主机的依据不同，详见 [Anthropic 说明](Anthropic.md)。2026-11-18 的 10 个社区差集域名未逐项核实归属和用途；两个 Datadog 精确主机的可选遥测用途已按官方 CLI 文档重新核对。
 
 ## 维护
 

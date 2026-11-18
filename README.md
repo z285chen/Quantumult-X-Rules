@@ -4,12 +4,12 @@
 
 | 规则 | 策略名 | 说明 |
 | --- | --- | --- |
-| [Anthropic.list](Anthropic.list) | `Anthropic` | Claude 网页、API、桌面预览、Artifacts 与 MCP 内容；[来源与维护说明](docs/Anthropic.md) |
+| [Anthropic.list](Anthropic.list) | `Anthropic` | Claude 核心服务、社区扩展及精确遥测主机；[来源与维护说明](docs/Anthropic.md) |
 | [HongKongBank.list](HongKongBank.list) | `Bank` | 汇丰香港、大象银行、ZA、Wise；详见下方说明 |
 
 ## Loon 版本
 
-Quantumult X 文件保持原样，Loon 版本放在 `loon/` 目录。Loon 远程规则文件本身不写策略名，策略在 `[Remote Rule]` 中映射：
+Quantumult X 与 Loon 两种格式同步维护，Loon 版本放在 `loon/` 目录。Loon 远程规则文件本身不写策略名，策略在 `[Remote Rule]` 中映射：
 
 | Loon 文件 | 建议策略 | 对应 Quantumult X 文件 |
 | --- | --- | --- |
@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/loon/HongKong
 
 ## Anthropic / Claude
 
-核查日期：2026-10-22。默认启用 10 条规则，包含 8 条域名后缀和 2 条官方 API 入站 IP 范围。共享安装、插件、字体、JavaScript 库和遥测主机作为注释保留，可按需启用。
+更新日期：2026-11-18。默认启用 22 条规则，包含 18 条域名后缀、2 条精确遥测主机和 2 条官方 API 入站 IP 范围。基础产品范围核查于 2026-10-22；本次按用户要求启用 10 个社区差集域名和 2 个用途已由官方文档确认的 Datadog 主机。其他共享安装、插件、字体、JavaScript 库与 MCP 规范网站共 13 条规则仍作为注释保留。
 
 订阅地址：[Anthropic.list](https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/Anthropic.list)。在配置的 `[filter_remote]` 段追加：
 
@@ -38,7 +38,7 @@ https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/Anthropic.lis
 
 先创建或选择实际使用的策略，并将 `force-policy=Anthropic` 改为该策略名，例如 `force-policy=AI`。`force-policy` 覆盖文件末列的策略；`tag` 只是资源名称。需要专门出口时，将本资源排在覆盖相同目标的综合规则之前，并在请求日志中确认命中结果。
 
-默认域名包括 `anthropic.com`、`claude.ai`、`claude.com`、`claude.app`、`claudeusercontent.com`、`claudemcpcontent.com`、`claude.dev`，以及社区清单中的 `clau.de`。官方依据、社区条目、可选依赖和覆盖边界见 [Anthropic 说明](docs/Anthropic.md)。已做静态校验，尚未在实际 Quantumult X 客户端中验证。
+原有核心域名及 `clau.de` 保留；新增社区域名的归属和具体用途尚未逐项独立核实，不把社区清单当作官方必需允许列表。`http-intake.logs.us5.datadoghq.com` 和 `browser-intake-us5-datadoghq.com` 只按精确主机匹配，不扩大到整个 Datadog 后缀。完整清单、来源与覆盖边界见 [Anthropic 说明](docs/Anthropic.md)。已做静态校验，新增条目的实际命中与出口仍需在客户端验收；规则不承诺账户或风控结果。
 
 ## Hong Kong Bank（自用草稿）
 

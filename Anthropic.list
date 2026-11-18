@@ -1,10 +1,10 @@
 # NAME: Anthropic / Claude
 # AUTHOR: z285chen
 # REPO: https://github.com/z285chen/Quantumult-X-Rules
-# REVIEWED: 2026-10-22
-# FORMAT: Quantumult X | POLICY: Anthropic | ACTIVE RULES: 10
+# CORE REVIEWED: 2026-10-22 | UPDATED: 2026-11-18
+# FORMAT: Quantumult X | POLICY: Anthropic | ACTIVE RULES: 22
 # Sources, scope and import instructions: docs/Anthropic.md
-# Shared dependencies below are commented; enable individual hosts as needed.
+# Other shared dependencies remain commented; the two Datadog intake hosts are enabled.
 
 # Official product hosts: API, sign-in, downloads, previews, Artifacts and MCP Apps
 HOST-SUFFIX,anthropic.com,Anthropic
@@ -19,6 +19,24 @@ HOST-SUFFIX,claude.dev,Anthropic
 
 # Short links: community inventory; not in the official network requirements
 HOST-SUFFIX,clau.de,Anthropic
+
+# Community domain inventory: enabled by request on 2026-11-18.
+# Source and limits: docs/Anthropic.md; ownership and endpoint purposes not independently verified.
+HOST-SUFFIX,ant.dev,Anthropic
+HOST-SUFFIX,anthropic.team,Anthropic
+HOST-SUFFIX,antspace.dev,Anthropic
+HOST-SUFFIX,chatbotclaude.com,Anthropic
+HOST-SUFFIX,claude.new,Anthropic
+HOST-SUFFIX,claude.site,Anthropic
+HOST-SUFFIX,claudeacademy.com,Anthropic
+HOST-SUFFIX,claudemcpclient.com,Anthropic
+HOST-SUFFIX,claudepages.dev,Anthropic
+HOST-SUFFIX,claudestudio.com,Anthropic
+
+# Optional Claude Code operational telemetry and error reporting; enabled by request.
+# SHARED Datadog hosts: other apps using these exact hosts also follow this policy.
+HOST,http-intake.logs.us5.datadoghq.com,Anthropic
+HOST,browser-intake-us5-datadoghq.com,Anthropic
 
 # Official API inbound ranges; native Quantumult X syntax
 IP-CIDR,160.79.104.0/23,Anthropic
@@ -44,12 +62,6 @@ IP6-CIDR,2607:6bc0::/48,Anthropic
 # HOST,code.jquery.com,Anthropic
 # HOST,unpkg.com,Anthropic
 
-# Optional SHARED Claude Code telemetry and error reporting
-# HOST,http-intake.logs.us5.datadoghq.com,Anthropic
-# HOST,browser-intake-us5-datadoghq.com,Anthropic
-
 # Optional ecosystem destinations
-# Community inventory; endpoint purpose not independently verified
-# HOST-SUFFIX,claudemcpclient.com,Anthropic
 # MCP specification website; enable if you want its docs on this policy
 # HOST-SUFFIX,modelcontextprotocol.io,Anthropic
