@@ -1,6 +1,6 @@
 # Anthropic / Claude（Quantumult X）
 
-更新日期：2026-11-18。基础产品范围核查日期：2026-10-22；Datadog 遥测用途重新核对日期：2026-11-18。规则文件：[Anthropic.list](../Anthropic.list)。默认启用 22 条：18 条域名后缀、2 条精确遥测主机、2 条官方 API 入站 IP 范围。
+2026-11-25 更新。基础产品范围核查日期为 2026-10-22，Datadog 遥测用途于 2026-11-18 重新核对。规则文件为 [Anthropic.list](../Anthropic.list)。默认启用 23 条，包含 18 条域名后缀、2 条精确遥测主机和 3 条官方 API 入站 IP 范围。
 
 Loon 版本：[loon/Anthropic.list](../loon/Anthropic.list)，策略由 `[Remote Rule]` 映射，转换说明见 [Loon.md](Loon.md)。
 
@@ -35,11 +35,12 @@ https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/Anthropic.lis
 | `claude.dev` 及子域 | 开发者博客 | [Claude 官网][home]的 Developer blog 链接直接指向该域名 |
 | `clau.de` 及子域 | 短链接候选 | [v2fly 社区清单][community]；未出现在本轮核对的官方网络要求中，未独立确认每个入口的用途 |
 | `160.79.104.0/23` | 官方 API 入站 IPv4 | [官方 IP 文档][ips] |
+| `153.61.224.0/22` | 官方 API 入站 IPv4，2026-11-25 补录 | [ips] |
 | `2607:6bc0::/48` | 官方 API 入站 IPv6 | [ips] |
 
 域名后缀规则同时匹配根域和各级子域，因此不再单列 `api.anthropic.com`、`platform.claude.com`、`sso.claude.com`、`downloads.claude.ai` 等重复条目。动态预览与 MCP 内容子域也由后缀规则覆盖。
 
-IP 规则使用 Quantumult X 原生的三列 `IP-CIDR` / `IP6-CIDR` 写法。这里采用官方 API 入站范围；`160.79.104.0/21` 是官方公布的服务端出口范围，整个 IPv6 `/32` 也不是官方公布的 API 入站范围，因此均未扩大纳入。IP 规则作为可识别目标地址的补充，不能替代域名规则或覆盖全部共享 CDN。
+IP 规则使用 Quantumult X 原生的三列 `IP-CIDR` / `IP6-CIDR` 写法。规则采用官方公布的 API 入站范围。`160.79.104.0/21` 和 `153.61.208.0/20` 用于 Anthropic 服务端向外发起的连接。IP 规则作为可识别目标地址的补充，不能替代域名规则或覆盖全部共享 CDN。
 
 ## 2026-11-18 补充范围
 

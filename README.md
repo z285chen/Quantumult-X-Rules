@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/loon/HongKong
 
 ## Anthropic / Claude
 
-更新日期：2026-11-18。默认启用 22 条规则，包含 18 条域名后缀、2 条精确遥测主机和 2 条官方 API 入站 IP 范围。基础产品范围核查于 2026-10-22；本次按用户要求启用 10 个社区差集域名和 2 个用途已由官方文档确认的 Datadog 主机。其他共享安装、插件、字体、JavaScript 库与 MCP 规范网站共 13 条规则仍作为注释保留。
+2026-11-25 更新。默认启用 23 条规则，包含 18 条域名后缀、2 条精确遥测主机和 3 条官方 API 入站 IP 范围，其中 `153.61.224.0/22` 为本次补录。基础产品范围核查于 2026-10-22。2026-11-18 按用户要求启用 10 个社区差集域名和 2 个用途已由官方文档确认的 Datadog 主机。其他共享安装、插件、字体、JavaScript 库与 MCP 规范网站共 13 条规则仍作为注释保留。
 
 订阅地址：[Anthropic.list](https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/Anthropic.list)。在配置的 `[filter_remote]` 段追加：
 

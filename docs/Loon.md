@@ -1,10 +1,10 @@
 # Loon 版本说明
 
-首次转换日期：2026-11-14；最近同步日期：2026-11-18。Quantumult X 和 Loon 两种格式同步维护；Loon 文件位于 [`loon/`](../loon)。
+首次转换于 2026-11-14，最近同步于 2026-11-25。Quantumult X 和 Loon 两种格式同步维护；Loon 文件位于 [`loon/`](../loon)。
 
 | Loon 文件 | 建议策略 | 对应 Quantumult X 文件 | 有效规则 |
 | --- | --- | --- | --- |
-| [`loon/Anthropic.list`](../loon/Anthropic.list) | `Anthropic` | [`Anthropic.list`](../Anthropic.list) | 22 |
+| [`loon/Anthropic.list`](../loon/Anthropic.list) | `Anthropic` | [`Anthropic.list`](../Anthropic.list) | 23 |
 | [`loon/HongKongBank.list`](../loon/HongKongBank.list) | `Bank` | [`HongKongBank.list`](../HongKongBank.list) | 12 |
 
 ## 导入
@@ -37,16 +37,17 @@ https://raw.githubusercontent.com/z285chen/Quantumult-X-Rules/main/loon/HongKong
 
 ## IP 规则语义
 
-`Anthropic.list` 的两条 IP 规则原样保留：
+`Anthropic.list` 的三条官方 API 入站网段在 Loon 中使用以下写法。
 
 ```text
 IP-CIDR,160.79.104.0/23
+IP-CIDR,153.61.224.0/22
 IP-CIDR6,2607:6bc0::/48
 ```
 
 源文件没有 `no-resolve`，因此 Loon 版本也没有添加。按 Loon 3.0.3 及以上的匹配顺序，域名请求先匹配域名规则；只有域名规则都没命中时才会解析 DNS 再匹配 IP 规则。加上 `no-resolve` 会改变语义：只匹配目标地址本来就是 IP 的请求，不再覆盖解析到这些范围的域名。这里优先保持与 Quantumult X 源文件一致；如果更在意避免额外 DNS 查询，可以自行追加 `,no-resolve`，但要接受上述覆盖范围的收缩。
 
-没有把 `160.79.104.0/23` 扩大成官方服务端出口范围 `/21`，也没有把 IPv6 `/48` 扩大成整个 `/32`。ASN 和正则规则在两份源文件中都不存在，因此没有可转换或需要核对的条目。
+两份规则均使用官方公布的入站范围。ASN 和正则规则在两份源文件中都不存在，因此没有可转换或需要核对的条目。
 
 ## 顺序与例外
 
@@ -54,7 +55,7 @@ IP-CIDR6,2607:6bc0::/48
 
 ## 校验
 
-- 有效条目：`Anthropic` 22 条（18 条 `DOMAIN-SUFFIX` + 2 条 `DOMAIN` + 1 条 `IP-CIDR` + 1 条 `IP-CIDR6`）；`HongKongBank` 12 条（11 条 `DOMAIN-SUFFIX` + 1 条 `DOMAIN`）。
+- 有效条目：`Anthropic` 23 条（18 条 `DOMAIN-SUFFIX` + 2 条 `DOMAIN` + 2 条 `IP-CIDR` + 1 条 `IP-CIDR6`）；`HongKongBank` 12 条（11 条 `DOMAIN-SUFFIX` + 1 条 `DOMAIN`）。
 - 注释中的可选规则：`Anthropic` 13 条，`HongKongBank` 14 条，均已按同一映射改写。
 - 逐条核对：去掉注释和空行后，两个 Loon 文件的规则数量、顺序、类型和值均与源文件一一对应；Loon 行末没有残留 `Anthropic` 或 `Bank` 策略字段。
 - 已按 Loon 官方文档核对 `DOMAIN`、`DOMAIN-SUFFIX`、`DOMAIN-KEYWORD`、`IP-CIDR`、`IP-CIDR6`、`IP-ASN` 的写法，以及订阅规则不含策略、策略由 `[Remote Rule]` 映射的规则。

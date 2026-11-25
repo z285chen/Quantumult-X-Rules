@@ -1,8 +1,8 @@
 # NAME: Anthropic / Claude
 # AUTHOR: z285chen
 # REPO: https://github.com/z285chen/Quantumult-X-Rules
-# CORE REVIEWED: 2026-10-22 | UPDATED: 2026-11-18
-# FORMAT: Quantumult X | POLICY: Anthropic | ACTIVE RULES: 22
+# CORE REVIEWED: 2026-10-22 | UPDATED: 2026-11-25
+# FORMAT: Quantumult X | POLICY: Anthropic | ACTIVE RULES: 23
 # Sources, scope and import instructions: docs/Anthropic.md
 # Other shared dependencies remain commented; the two Datadog intake hosts are enabled.
 
@@ -40,6 +40,7 @@ HOST,browser-intake-us5-datadoghq.com,Anthropic
 
 # Official API inbound ranges; native Quantumult X syntax
 IP-CIDR,160.79.104.0/23,Anthropic
+IP-CIDR,153.61.224.0/22,Anthropic
 IP6-CIDR,2607:6bc0::/48,Anthropic
 
 # Optional SHARED hosts: enabling these also routes other apps using them.

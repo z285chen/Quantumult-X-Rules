@@ -1,10 +1,10 @@
 # NAME: Anthropic / Claude (Loon)
 # AUTHOR: z285chen
 # REPO: https://github.com/z285chen/Quantumult-X-Rules
-# CORE REVIEWED: 2026-10-22 | UPDATED: 2026-11-18 | CONVERTED: 2026-11-18
+# CORE REVIEWED: 2026-10-22 | UPDATED: 2026-11-25 | CONVERTED: 2026-11-25
 # FORMAT: Loon remote rule; this file carries no policy name.
 # POLICY: map it in [Remote Rule] with policy=Anthropic (or your own policy).
-# ACTIVE RULES: 22
+# ACTIVE RULES: 23
 # Source: Anthropic.list (Quantumult X). Mapping, evidence and caveats: docs/Loon.md
 # Other shared dependencies remain commented; the two Datadog intake hosts are enabled.
 
@@ -44,6 +44,7 @@ DOMAIN,browser-intake-us5-datadoghq.com
 # no-resolve is intentionally omitted to keep the source matching semantics:
 # Loon only resolves a domain for IP rules when no domain rule matched.
 IP-CIDR,160.79.104.0/23
+IP-CIDR,153.61.224.0/22
 IP-CIDR6,2607:6bc0::/48
 
 # Optional SHARED hosts: enabling these also routes other apps using them.
